@@ -1,0 +1,23 @@
+<h2>Angular Contact Form</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+  <input type="text" placeholder="Name" formControlName="name">
+  <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+    Name is required
+  </div>
+
+  <br>
+
+  <input type="email" placeholder="Email" formControlName="email">
+  <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+    Valid email is required
+  </div>
+
+  <br>
+
+  <textarea placeholder="Message" formControlName="message"></textarea>
+
+  <br><br>
+
+  <button type="submit">Submit</button>
+</form>
